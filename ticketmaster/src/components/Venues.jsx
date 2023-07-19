@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import DrinkDetails from "./DrinkDetails";
+///import DrinkDetails from "./DrinkDetails";
 import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import {
@@ -16,6 +16,10 @@ import {
   Grow,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import axios from "axios";
+//require(`dotenv`).config();
+
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -29,18 +33,18 @@ const ExpandMore = styled((props) => {
 }));
 
 const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   const [expanded, setExpanded] = React.useState([]);
-  const [loaded, setloaded] = useState(Array(drinks.length).fill(false));
-  const [venues, setVenues] = uVeState([]);
+  // const [loaded, setloaded] = useState(Array(drinks.length).fill(false));
+  const [venues, setVenues] = useState([]);
 
-  useEffect(() => {
-    setloaded(Array(drinks.length).fill(false));
+  // useEffect(() => {
+  //   setloaded(Array(drinks.length).fill(false));
 
-    return () => {
-      setloaded(Array(drinks.length).fill(false));
-    };
-  }, [drink]);
+  //   return () => {
+  //     setloaded(Array(drinks.length).fill(false));
+  //   };
+  // }, [drink]);
 
   const handleExpandClick = (index) => {
     setExpanded((prevState) => {
@@ -50,22 +54,24 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
     });
   };
 
-  const showVenueEvents = (id) => {
-    navigate(`${id}`);
-  };
+  // const showVenueEvents = (id) => {
+  //   navigate(`${id}`);
+  // };
 
-  //when image is loaded, then set index to true so the image 'grows' using <Grow> UI
-  const handleImageLoaded = (index) => {
-    let newLoaded = [...loaded];
-    newLoaded[index] = true;
-    setloaded(newLoaded);
-  };
+  // //when image is loaded, then set index to true so the image 'grows' using <Grow> UI
+  // const handleImageLoaded = (index) => {
+  //   let newLoaded = [...loaded];
+  //   newLoaded[index] = true;
+  //   setloaded(newLoaded);
+  // };
 
   useEffect(() => {
     const getVenues = async () => {
-      const { data } = await axios.get();
-      setVenues(data.venues);
+      const { data } = await axios.get(`${BASE_URL}venues`);
+      setVenues(data);
+      console.log(data);
     };
+    getVenues();
   }, []);
 
   const venue_img = [
@@ -87,13 +93,13 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
           md={4}
           className="card"
           //onClick={() => showVenueEvents(drink.idDrink)}
-          key={venue.idDrink}
+          key={venue.id}
         >
           <Grow in={true}>
             <Card
-              onLoad={() => {
-                handleImageLoaded(index);
-              }}
+            // onLoad={() => {
+            //   handleImageLoaded(index);
+            // }}
             >
               <CardMedia
                 component="img"
@@ -102,7 +108,7 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
               />
               <CardContent>
                 <Typography variant="body1" color={"black"}>
-                  {drink.strDrink}
+                  {venue.name}
                 </Typography>
               </CardContent>
               <CardActions disableSpacing>
@@ -129,7 +135,7 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
             </Card>
           </Grow>
           {/* <img src={drink.strDrinkThumb} alt="" />
-          <h3>{drink.strDrink}</h3> */}
+            <h3>{drink.strDrink}</h3> */}
         </Grid>
       ))}
     </Grid>
