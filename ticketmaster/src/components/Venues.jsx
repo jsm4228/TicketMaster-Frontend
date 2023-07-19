@@ -128,7 +128,13 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
                 //component={DrinkDetails}
               >
                 <CardContent>
-                  Venue Details
+                  {`This venue includes ${venue.bar ? "a bar" : ""}, ${
+                    venue.kitchen ? "a kitchen" : ""
+                  }, ${
+                    venue.bathrooms > 0
+                      ? venue.bathrooms + " bathrooms"
+                      : "no bathrooms"
+                  }, a ${venue.outdoor_space}, and ${venue.accessibility}`}
                   {/* <DrinkDetails id={drink.idDrink}></DrinkDetails> */}
                 </CardContent>
               </Collapse>
