@@ -42,6 +42,9 @@ const EventDetails = () => {
   const [cartItems, setCartItems] = useState([])
 
   const addToCart = () => {
+    if (events.tickets_available - events.tickets_sold === 0) {
+      return
+    }
   const storedItems = localStorage.getItem("cartItems")
   const prevCartItems = storedItems ? JSON.parse(storedItems) : []
   const updatedCartItems = [...prevCartItems, events]
@@ -96,6 +99,7 @@ const EventDetails = () => {
           <Typography variant="body1"><strong>Location:</strong> {events.venue_name}</Typography>
           <Typography variant="body1"><strong>Theme:</strong> {events.theme}</Typography>
           <Typography variant="body1"><strong>Performers:</strong> {events.performers}</Typography>
+          <Typography variant="body1"><strong>Tickets available: </strong> {events.tickets_available - events.tickets_sold}</Typography>
           <Typography variant="body1"><strong>Price:</strong> ${events.price}</Typography>
         </Container>
        
@@ -107,7 +111,11 @@ const EventDetails = () => {
             border: 'solid 2px rgb(20, 130, 180)',
             margin:'30px',
             marginBottom: '60px',
-            width:'200px'}}onClick={addToCart}>ADD</Button>      
+            width:'200px'}}onClick={addToCart}
+            disabled={events.tickets_available - events.tickets_sold === 0} // Disable the button if tickets are sold out
+            >
+              {events.tickets_available - events.tickets_sold === 0 ? 'Sold Out' : 'ADD'}
+            </Button>      
 
 
        
