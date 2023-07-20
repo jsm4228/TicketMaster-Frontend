@@ -44,9 +44,6 @@ const EventDetails = () => {
       <Container>
 
         <Typography variant="h1" sx={{width:'100%'}}>{events.name}</Typography>
-        <img className="event-img" src= {events.img_url} alt="" />
-        <Typography variant="body2"><strong>Event Description:</strong> {events.event_description}</Typography>
-        <Typography variant="h1">{events.name}</Typography>
         <Grow in={loaded}>
           <img
             className="event-img"
