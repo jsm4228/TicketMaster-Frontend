@@ -19,7 +19,7 @@ import {
 
 const Nav = () => {
   return (
-    <AppBar className="nav" position="static">
+    <AppBar className="nav" position="static" sx={{backgroundColor: 'white'}}>
       <Container align="center">
         <ButtonGroup
           size="large"

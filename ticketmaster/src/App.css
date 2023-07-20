@@ -10,16 +10,9 @@ h1 {
   background-color: rgb(84, 149, 206);
 }
 
-.nav {
-  background-color: brown;
-}
 
-Card {
- margin: auto;
-}
 
 .event-details-page {
-  margin: auto;
   text-align: center;
 }
 
@@ -38,6 +31,3 @@ Card {
   border-top: goldenrod solid 7px;
 }
 
-Button {
-
-}
