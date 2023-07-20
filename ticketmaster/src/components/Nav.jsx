@@ -34,7 +34,10 @@ const Nav = () => {
           {/* <Link to="./generate">
             <Button>Recipe Generator</Button>
           </Link> */}
-          <Link to="./cart">
+          <Link to="./Events">
+            <Button>Events</Button>
+          </Link>
+          <Link to="./Cart">
             <Button>Cart</Button>
           </Link>
         </ButtonGroup>
