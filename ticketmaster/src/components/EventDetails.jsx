@@ -68,7 +68,7 @@ const EventDetails = () => {
           />
         </Grow>
         <Container sx={{
-          background:'rgb(218, 165, 32, .8)',
+          background:'rgb(218, 165, 32, .2)',
           textAlign: 'left',
           padding: '10px',
           border:'white solid 1px',
