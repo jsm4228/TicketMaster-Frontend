@@ -14,6 +14,12 @@ import {
   IconButton,
   Skeleton,
   Grow,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemButton,
+  ListItemText,
+  Divider,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import axios from "axios";
@@ -33,7 +39,7 @@ const ExpandMore = styled((props) => {
 }));
 
 const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
   const [expanded, setExpanded] = React.useState([]);
   // const [loaded, setloaded] = useState(Array(drinks.length).fill(false));
   const [venues, setVenues] = useState([]);
@@ -54,9 +60,9 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
     });
   };
 
-  // const showVenueEvents = (id) => {
-  //   navigate(`${id}`);
-  // };
+  const showEventDetails = (id) => {
+    navigate(`/events/${id}`);
+  };
 
   // //when image is loaded, then set index to true so the image 'grows' using <Grow> UI
   // const handleImageLoaded = (index) => {
@@ -136,6 +142,22 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
                       : "no bathrooms"
                   }, a ${venue.outdoor_space}, and ${venue.accessibility}`}
                   {/* <DrinkDetails id={drink.idDrink}></DrinkDetails> */}
+                  <Divider />
+                  <nav aria-label="event list">
+                    <List>
+                      {venue.events.map((event, index) => (
+                        <ListItem disablePadding>
+                          <ListItemButton
+                            onClick={() => showEventDetails(event.id)}
+                          >
+                            <ListItemText
+                              primary={`${event.name} on ${event.date} at ${event.time}`}
+                            />
+                          </ListItemButton>
+                        </ListItem>
+                      ))}
+                    </List>
+                  </nav>
                 </CardContent>
               </Collapse>
             </Card>
