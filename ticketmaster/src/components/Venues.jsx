@@ -86,87 +86,125 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
     "https://github.com/jsm4228/TicketMaster-Frontend/blob/main/ticketmaster/src/assets/Lakeside%201.jpeg?raw=true",
   ];
   return (
-    <Grid
-      container
-      spacing={{ xs: 2, md: 3 }}
-      columns={{ xs: 4, sm: 8, md: 12 }}
-    >
-      {venues.map((venue, index) => (
-        <Grid
-          item
-          xs={2}
-          sm={4}
-          md={4}
-          className="card"
-          //onClick={() => showVenueEvents(drink.idDrink)}
-          key={venue.id}
-        >
-          <Grow in={true}>
-            <Card
-            // onLoad={() => {
-            //   handleImageLoaded(index);
-            // }}
-            >
-              <CardMedia
-                component="img"
-                height={"194"}
-                image={venue_img[index]}
-              />
-              <CardContent>
-                <Typography variant="body1" color={"black"}>
-                  {venue.name}
-                </Typography>
-              </CardContent>
-              <CardActions disableSpacing>
-                <ExpandMore
-                  expand={expanded[index]}
-                  onClick={() => handleExpandClick(index)}
-                  aria-expanded={expanded[index]}
-                  aria-label="show more"
-                >
-                  <ExpandMoreIcon />
-                </ExpandMore>
-              </CardActions>
-              <Collapse
-                in={expanded[index]}
-                timeout="auto"
-                unmountOnExit
-                //component={DrinkDetails}
+    <div className="venue-page">
+      <Typography
+        variant="h1"
+        sx={{
+          backgroundImage:
+            "linear-gradient(to top, rgb(250, 250, 250, .7),rgba(20, 130, 180))",
+          borderTop: "7px solid goldenrod",
+          borderBottom: "7px solid goldenrod",
+          color: "rgb(250, 250, 250, 1)",
+          padding: "10px",
+          textShadow: "3px 3px 3px grey",
+        }}
+      >
+        Venues
+      </Typography>
+      <Grid
+        sx={{
+          padding: "20px",
+        }}
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
+        {venues.map((venue, index) => (
+          <Grid item xs={2} sm={4} md={4} className="card" key={venue.id}>
+            <Grow in={true}>
+              <Card
+                sx={{
+                  border: '10px solid',
+                  borderImageSlice: '1',
+                  borderWidth: '7px',
+                  borderImageSource: 'linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))'
+                }}
               >
-                <CardContent>
-                  {`This venue includes ${venue.bar ? "a bar" : ""}, ${
-                    venue.kitchen ? "a kitchen" : ""
-                  }, ${
-                    venue.bathrooms > 0
-                      ? venue.bathrooms + " bathrooms"
-                      : "no bathrooms"
-                  }, a ${venue.outdoor_space}, and ${venue.accessibility}`}
-                  {/* <DrinkDetails id={drink.idDrink}></DrinkDetails> */}
-                  <Divider />
-                  <nav aria-label="event list">
-                    <List>
-                      {venue.events.map((event, index) => (
-                        <ListItem disablePadding>
-                          <ListItemButton
-                            onClick={() => showEventDetails(event.id)}
-                          >
-                            <ListItemText
-                              primary={`${event.name} on ${event.date} at ${event.time}`}
-                            />
-                          </ListItemButton>
-                        </ListItem>
-                      ))}
-                    </List>
-                  </nav>
-                </CardContent>
-              </Collapse>
-            </Card>
-          </Grow>
-          {/* <img src={drink.strDrinkThumb} alt="" />
-            <h3>{drink.strDrink}</h3> */}
-        </Grid>
-      ))}
-    </Grid>
+                <CardMedia
+                  component="img"
+                  height={"194"}
+                  image={venue_img[index]}
+                />
+                <CardHeader
+                  title={venue.name}
+                  subheader={venue.location}
+                  sx={{
+                    backgroundColor: "rgb(218, 165, 32, .4)",
+                    color: "rgb(250, 250, 250, 1)",
+                    textShadow: "3px 3px 3px grey",
+                  }}
+                />
+                <CardContent></CardContent>
+                <CardActions disableSpacing>
+                  <ExpandMore
+                    expand={expanded[index]}
+                    onClick={() => handleExpandClick(index)}
+                    aria-expanded={expanded[index]}
+                    aria-label="show more"
+                  >
+                    <ExpandMoreIcon />
+                  </ExpandMore>
+                </CardActions>
+                <Collapse
+                  in={expanded[index]}
+                  timeout="auto"
+                  unmountOnExit
+                  sx={{ backgroundColor: "rgb(218, 165, 32, .4)" }}
+                >
+                  <CardContent sx={{ backgroundColor: "rgb(20, 130, 180)" }}>
+                    <Typography
+                      gutterBottom
+                      variant="h6"
+                      sx={{
+                        color: "rgb(250, 250, 250, 1)",
+                        textShadow: "3px 3px 3px grey",
+                      }}
+                    >
+                      Brief Description:
+                    </Typography>
+                    <Typography
+                      gutterBottom
+                      variant="body2"
+                      sx={{
+                        color: "rgb(250, 250, 250, 1)",
+                        textShadow: "3px 3px 3px grey",
+                      }}
+                    >
+                      {`This venue includes ${venue.bar ? "a bar" : ""}, ${
+                        venue.kitchen ? "a kitchen" : ""
+                      }, ${
+                        venue.bathrooms > 0
+                          ? venue.bathrooms + " bathrooms"
+                          : "no bathrooms"
+                      }, a ${venue.outdoor_space}, and ${venue.accessibility}`}
+                    </Typography>
+
+                    <Divider />
+                  </CardContent>
+                  <CardContent>
+                    <nav aria-label="event list">
+                      <List>
+                        {venue.events.map((event, index) => (
+                          <ListItem disablePadding>
+                            <ListItemButton
+                              onClick={() => showEventDetails(event.id)}
+                            >
+                              <ListItemText
+                                primary={`${event.name} on ${event.date} at ${event.time}`}
+                              />
+                            </ListItemButton>
+                          </ListItem>
+                        ))}
+                      </List>
+                    </nav>
+                  </CardContent>
+                </Collapse>
+              </Card>
+            </Grow>
+          </Grid>
+        ))}
+      </Grid>
+    </div>
   );
 };
 

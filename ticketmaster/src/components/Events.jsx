@@ -92,7 +92,13 @@ const Events = () => {
         {events.map((event, index) => (
           <Grid item xs={2} sm={4} md={4} className="card" key={event.id}>
             <Grow in={true}>
-              <Card>
+              <Card
+              sx={{
+                border: '10px solid',
+                borderImageSlice: '1',
+                borderWidth: '7px',
+                borderImageSource: 'linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))'
+              }}>
                 <CardMedia
                   component="img"
                   height="140"
