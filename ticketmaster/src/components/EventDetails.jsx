@@ -42,7 +42,6 @@ const EventDetails = () => {
   return (
     <div className="event-details-page">
       <Container>
-
         <Typography variant="h1" sx={{width:'100%'}}>{events.name}</Typography>
         <Grow in={loaded}>
           <img
@@ -62,6 +61,7 @@ const EventDetails = () => {
         <Typography variant="body2">{events.performers}</Typography>
         <Typography variant="body2">Price: ${events.price}</Typography>
 
+
         <Button sx={{
             backgroundColor: 'goldenrod', 
             color: 'rgb(20, 130, 180)',
@@ -69,6 +69,12 @@ const EventDetails = () => {
 
         <Button>ADD</Button>
       </Container>
+
+        <Button sx={{
+            backgroundColor: 'goldenrod', 
+            color: 'rgb(20, 130, 180)',
+            border: 'solid 2px rgb(84, 149, 206)'}}>ADD</Button>      </Container>
+
     </div>
   );
 };
