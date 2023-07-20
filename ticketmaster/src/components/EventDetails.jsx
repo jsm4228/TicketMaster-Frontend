@@ -35,7 +35,7 @@ const EventDetails = () => {
   return (
     <div className="event-details-page">
       <Container>
-        <Typography variant="h1">{events.name}</Typography>
+        <Typography variant="h1" sx={{width:'100%'}}>{events.name}</Typography>
         <img className="event-img" src= {events.img_url} alt="" />
         <Typography variant="body2"><strong>Event Description:</strong> {events.event_description}</Typography>
         <Typography variant="body2">{events.date}</Typography>
@@ -44,7 +44,10 @@ const EventDetails = () => {
         <Typography variant="body2">{events.theme}</Typography>
         <Typography variant="body2">{events.performers}</Typography>
         <Typography variant="body2">Price: ${events.price}</Typography>
-        <Button>ADD</Button>
+        <Button sx={{
+            backgroundColor: 'goldenrod', 
+            color: 'rgb(20, 130, 180)',
+            border: 'solid 2px rgb(84, 149, 206)'}}>ADD</Button>
 
       </Container>
     </div>
