@@ -13,6 +13,7 @@ import {
   IconButton,
   Skeleton,
   Grow,
+  Button
 } from "@mui/material";
 import { useParams } from "react-router-dom";
 
@@ -36,11 +37,14 @@ const EventDetails = () => {
       <Container>
         <Typography variant="h1">{events.name}</Typography>
         <img className="event-img" src= {events.img_url} alt="" />
-        <Typography variant="body2">{events.event_description}</Typography>
+        <Typography variant="body2"><strong>Event Description:</strong> {events.event_description}</Typography>
         <Typography variant="body2">{events.date}</Typography>
         <Typography variant="body2">{events.time}</Typography>
         <Typography variant="body2">{events.venue_name}</Typography>
+        <Typography variant="body2">{events.theme}</Typography>
+        <Typography variant="body2">{events.performers}</Typography>
         <Typography variant="body2">Price: ${events.price}</Typography>
+        <Button>ADD</Button>
 
       </Container>
     </div>

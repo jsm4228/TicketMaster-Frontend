@@ -26,14 +26,18 @@ Card {
 .event-img {
   margin: 10px auto;
   height: 700px;
-  border: solid 7px goldenrod;
-  border-image: linear-gradient(to bottom, goldenrod, transparent) 1 100%;
-  border-top: solid 7px goldenrod;
-
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 7px;
+  border-image-source: linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0.141));
 }
 
 .event-img img {
   width: 100%;
   height: 100%;
   border-top: goldenrod solid 7px;
+}
+
+Button {
+
 }
