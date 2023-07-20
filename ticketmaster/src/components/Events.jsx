@@ -100,14 +100,15 @@ const Events = () => {
                   alt={event.name}
                 />
                 <CardHeader
-                  title={<Link to={`/events/${event.id}`}>{event.name}</Link>}
+                  title={<Link to={`/events/${event.id}`} style={{textDecoration: 'none'}}>{event.name}</Link>}
                   subheader={`${event.date}, ${event.time}`}
                   sx={{backgroundColor: 'rgb(218, 165, 32, .4)'}}
                 />
 
                 <CardContent>
                   <Typography variant="body2" component="h2">
-                    <Link to={`/venues/${event.venue_id}`}>
+                    <Link to={`/venues/${event.venue_id}`}
+                    style={{textDecoration: 'none'}}>
                       {event.venue_name}
                     </Link>
                   </Typography>
