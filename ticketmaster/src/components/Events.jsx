@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-
-
-import axios from 'axios'
-
+import axios from "axios";
 
 import {
   Card,
@@ -21,8 +18,6 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { styled } from "@mui/material/styles";
-
-
 
 const URL = import.meta.env.VITE_BASE_URL;
 
@@ -49,24 +44,8 @@ const Events = () => {
   };
 
   useEffect(() => {
-
-  
-
-    getEvents()
-  },[])
-
-
-  const getVenue = async() => {
-   
-      const venueAPI = await axios.get(`${URL}venues`)
-            setVenues(venueAPI.data)
-            // console.log()
-    }
-
-    useEffect(() => {
-      getVenue()
-    },[])
-
+    getEvents();
+  }, []);
 
   const getVenue = async () => {
     const venueAPI = await axios.get(`${URL}venues`);
@@ -99,12 +78,15 @@ const Events = () => {
             <Grow in={true}>
               <Card>
                 <CardMedia
-
-                component="img"
-                height="140"
-                image={URL+event.image}
-                alt={event.name}/>
-                <CardHeader title={<Link to={`/event/${event.id}`}>{event.name}</Link>}  subheader={`${event.date}, ${event.time}`}/>
+                  component="img"
+                  height="140"
+                  image={URL + event.image}
+                  alt={event.name}
+                />
+                <CardHeader
+                  title={<Link to={`/events/${event.id}`}>{event.name}</Link>}
+                  subheader={`${event.date}, ${event.time}`}
+                />
 
                 <CardContent>
                   <Typography variant="body2" component="h2">
@@ -117,8 +99,9 @@ const Events = () => {
                    })
                    }   */}
 
-                   <Link to={`/venues/${event.venue_id}`}>{event.venue_name}</Link>
-
+                    <Link to={`/venues/${event.venue_id}`}>
+                      {event.venue_name}
+                    </Link>
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     There are {event.tickets_available} tickets left for this
