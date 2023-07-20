@@ -41,8 +41,24 @@ const EventDetails = () => {
 
   return (
     <div className="event-details-page">
-      <Container>
-        <Typography variant="h1" sx={{width:'100%'}}>{events.name}</Typography>
+        <Typography variant="h1" sx={{
+          backgroundImage: 'linear-gradient(to top, rgb(250, 250, 250, .7),rgba(20, 130, 180))',
+          borderTop: '7px solid goldenrod',
+          borderBottom: '7px solid goldenrod',
+          color: 'rgb(250, 250, 250, 1)',
+          padding: '10px',
+          textShadow: '3px 3px 3px grey',
+        }}>{events.name}</Typography>
+
+      <Container className="event-info" sx={{
+        backgroundImage: 'linear-gradient(to bottom, rgb(250, 250, 250,.9),rgba(20, 130, 180))',
+        borderBottom: '7px solid goldenrod',
+        color: 'rgb(250, 250, 250, 1)',
+        padding: '10px',
+        textShadow: '3px 3px 3px grey',
+        
+      }}>
+
         <Grow in={loaded}>
           <img
             className="event-img"
@@ -51,22 +67,35 @@ const EventDetails = () => {
             onLoad={handleImageLoaded}
           />
         </Grow>
-        <Typography variant="body2">
-          <strong>Event Description:</strong> {events.event_description}
-        </Typography>
-        <Typography variant="body2">{events.date}</Typography>
-        <Typography variant="body2">{events.time}</Typography>
-        <Typography variant="body2">{events.venue_name}</Typography>
-        <Typography variant="body2">{events.theme}</Typography>
-        <Typography variant="body2">{events.performers}</Typography>
-        <Typography variant="body2">Price: ${events.price}</Typography>
+        <Container sx={{
+          background:'rgb(218, 165, 32, .8)',
+          textAlign: 'left',
+          padding: '10px',
+          border:'white solid 1px',
+          borderRadius: '3px',
+        }}> 
+          <Typography variant="body1">
+            <strong>Event Description:</strong> {events.event_description}
+          </Typography>
+          <Typography variant="body1"><strong>Date:</strong> {events.date}</Typography>
+          <Typography variant="body1"><strong>Time:</strong> {events.time}</Typography>
+          <Typography variant="body1"><strong>Location:</strong> {events.venue_name}</Typography>
+          <Typography variant="body1"><strong>Theme:</strong> {events.theme}</Typography>
+          <Typography variant="body1"><strong>Performers:</strong> {events.performers}</Typography>
+          <Typography variant="body1"><strong>Price:</strong> ${events.price}</Typography>
+        </Container>
+       
+      </Container>
 
         <Button sx={{
             backgroundColor: 'goldenrod', 
             color: 'rgb(20, 130, 180)',
-            border: 'solid 2px rgb(84, 149, 206)'}}>ADD</Button>      
+            border: 'solid 2px rgb(20, 130, 180)',
+            margin:'30px',
+            marginBottom: '60px',
+            width:'200px'}}>ADD</Button>      
 
-        </Container>
+       
 
     </div>
   );
