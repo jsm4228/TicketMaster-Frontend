@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 
+
 import axios from 'axios'
 
 import { 
@@ -22,7 +23,7 @@ import { styled } from '@mui/material/styles';
 
 
 
-const URL = import.meta.env.VITE_API_URL;
+const URL = import.meta.env.VITE_BASE_URL;
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -51,6 +52,7 @@ const Events = () => {
   useEffect(() => {
     getEvents()
   },[])
+
 
   const getVenue = async() => {
    
@@ -100,7 +102,7 @@ const Events = () => {
                 height="140"
                 image={URL+event.image}
                 alt={event.name}/>
-                <CardHeader title={<Link to={'./EventDetails'}>{event.name}</Link>}  subheader={`${event.date}, ${event.time}`}/>
+                <CardHeader title={<Link to={`/event/${event.id}`}>{event.name}</Link>}  subheader={`${event.date}, ${event.time}`}/>
                 <CardContent>
           
                   <Typography variant="body2" component="h2">
@@ -112,7 +114,7 @@ const Events = () => {
                     }
                    })
                    }   */}
-                   <Link to={`/venues/${event.venue_id}`}>event.venue_name</Link>
+                   <Link to={`/venues/${event.venue_id}`}>{event.venue_name}</Link>
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     There are {event.tickets_available} tickets left for this event.
