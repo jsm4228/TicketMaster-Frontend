@@ -35,6 +35,13 @@ const EventDetails = () => {
     <div className="event-details-page">
       <Container>
         <Typography variant="h1">{events.name}</Typography>
+        <img className="event-img" src= {events.img_url} alt="" />
+        <Typography variant="body2">{events.event_description}</Typography>
+        <Typography variant="body2">{events.date}</Typography>
+        <Typography variant="body2">{events.time}</Typography>
+        <Typography variant="body2">{events.venue_name}</Typography>
+        <Typography variant="body2">Price: ${events.price}</Typography>
+
       </Container>
     </div>
   );

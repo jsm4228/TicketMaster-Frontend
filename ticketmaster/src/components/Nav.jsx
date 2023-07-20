@@ -19,7 +19,7 @@ import {
 
 const Nav = () => {
   return (
-    <AppBar position="static">
+    <AppBar className="nav" position="static">
       <Container align="center">
         <ButtonGroup
           size="large"
