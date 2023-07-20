@@ -39,6 +39,20 @@ const EventDetails = () => {
     setLoaded(!loaded);
   };
 
+  const [cartItems, setCartItems] = useState([])
+
+  const addToCart = () => {
+  const storedItems = localStorage.getItem("cartItems")
+  const prevCartItems = storedItems ? JSON.parse(storedItems) : []
+  const updatedCartItems = [...prevCartItems, events]
+
+  setCartItems(updatedCartItems)
+  localStorage.setItem("cartItems", JSON.stringify(updatedCartItems))
+}
+
+  
+  
+
   return (
     <div className="event-details-page">
       <Container>
@@ -64,7 +78,7 @@ const EventDetails = () => {
         <Button sx={{
             backgroundColor: 'goldenrod', 
             color: 'rgb(20, 130, 180)',
-            border: 'solid 2px rgb(84, 149, 206)'}}>ADD</Button>      
+            border: 'solid 2px rgb(84, 149, 206)'}}onClick={addToCart}>ADD</Button>      
 
         </Container>
 
