@@ -67,8 +67,20 @@ const Events = () => {
 
   return (
     <div className="events-page">
-
-      <Typography variant="h1">Events</Typography>
+      <Typography
+        variant="h1"
+        sx={{
+          backgroundImage:
+            "linear-gradient(to top, rgb(250, 250, 250, .7),rgba(20, 130, 180))",
+          borderTop: "7px solid goldenrod",
+          borderBottom: "7px solid goldenrod",
+          color: "rgb(250, 250, 250, 1)",
+          padding: "10px",
+          textShadow: "3px 3px 3px grey",
+        }}
+      >
+        Events
+      </Typography>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
