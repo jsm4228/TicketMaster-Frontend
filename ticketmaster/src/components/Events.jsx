@@ -82,6 +82,9 @@ const Events = () => {
         Events
       </Typography>
       <Grid
+        sx={{
+          padding: "20px",
+        }}
         container
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
@@ -99,19 +102,11 @@ const Events = () => {
                 <CardHeader
                   title={<Link to={`/events/${event.id}`}>{event.name}</Link>}
                   subheader={`${event.date}, ${event.time}`}
+                  sx={{backgroundColor: 'rgb(218, 165, 32, .4)'}}
                 />
 
                 <CardContent>
                   <Typography variant="body2" component="h2">
-                    {/* {
-                   venues.forEach((venue) => {
-                    if (venue.id === event.venue_id){
-                      console.log(venue.name)
-                      return venue.name
-                    }
-                   })
-                   }   */}
-
                     <Link to={`/venues/${event.venue_id}`}>
                       {event.venue_name}
                     </Link>
@@ -133,7 +128,9 @@ const Events = () => {
                     <ExpandMoreIcon />
                   </ExpandMore>
                 </CardActions>
-                <Collapse in={expanded[index]} timeout="auto" unmountOnExit>
+                <Collapse in={expanded[index]} timeout="auto" unmountOnExit sx={{
+                  backgroundColor: 'rgb(218, 165, 32, .4)'
+                }}>
                   <CardContent>
                     <Typography
                       variant="body2"
