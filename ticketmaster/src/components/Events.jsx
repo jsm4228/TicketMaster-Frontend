@@ -80,7 +80,7 @@ const Events = () => {
                 <CardMedia
                   component="img"
                   height="140"
-                  image={URL + event.image}
+                  image={`${event.img_url}.jpg`}
                   alt={event.name}
                 />
                 <CardHeader
