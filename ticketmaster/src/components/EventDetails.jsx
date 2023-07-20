@@ -13,13 +13,15 @@ import {
   IconButton,
   Skeleton,
   Grow,
-  Button
+  Button,
+  CircularProgress,
 } from "@mui/material";
 import { useParams } from "react-router-dom";
 
 const URL = import.meta.env.VITE_BASE_URL;
 
 const EventDetails = () => {
+  const [loaded, setLoaded] = useState(false);
   const [events, setEvents] = useState([]);
   let { id } = useParams();
   const getEvents = async () => {
@@ -32,12 +34,26 @@ const EventDetails = () => {
     getEvents();
   }, []);
 
+  //when image is loaded, then set index to true so the image 'grows' using <Grow> UI
+  const handleImageLoaded = () => {
+    setLoaded(!loaded);
+  };
+
   return (
     <div className="event-details-page">
       <Container>
         <Typography variant="h1">{events.name}</Typography>
-        <img className="event-img" src= {events.img_url} alt="" />
-        <Typography variant="body2"><strong>Event Description:</strong> {events.event_description}</Typography>
+        <Grow in={loaded}>
+          <img
+            className="event-img"
+            src={events.img_url}
+            alt=""
+            onLoad={handleImageLoaded}
+          />
+        </Grow>
+        <Typography variant="body2">
+          <strong>Event Description:</strong> {events.event_description}
+        </Typography>
         <Typography variant="body2">{events.date}</Typography>
         <Typography variant="body2">{events.time}</Typography>
         <Typography variant="body2">{events.venue_name}</Typography>
@@ -45,7 +61,6 @@ const EventDetails = () => {
         <Typography variant="body2">{events.performers}</Typography>
         <Typography variant="body2">Price: ${events.price}</Typography>
         <Button>ADD</Button>
-
       </Container>
     </div>
   );
