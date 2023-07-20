@@ -67,7 +67,8 @@ const Events = () => {
 
   return (
     <div className="events-page">
-      <h1 style={{ color: "black" }}>Events</h1>
+
+      <Typography variant="h1">Events</Typography>
       <Grid
         container
         spacing={{ xs: 2, md: 3 }}
@@ -80,7 +81,7 @@ const Events = () => {
                 <CardMedia
                   component="img"
                   height="140"
-                  image={`${event.img_url}.jpg`}
+                  image={event.img_url}
                   alt={event.name}
                 />
                 <CardHeader
