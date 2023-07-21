@@ -151,7 +151,8 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
                   unmountOnExit
                   sx={{ backgroundColor: "rgb(218, 165, 32, .4)" }}
                 >
-                  <CardContent sx={{ backgroundColor: "rgb(20, 130, 180)" }}>
+                  <CardContent sx={{ backgroundImage:
+            "linear-gradient(to top, rgb(218, 165, 32, .0),rgba(20, 130, 180))" }}>
                     <Typography
                       gutterBottom
                       variant="h6"
