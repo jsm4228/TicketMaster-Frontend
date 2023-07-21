@@ -98,35 +98,38 @@ const Events = () => {
           <Grid item xs={2} sm={4} md={4} className="card" key={event.id}>
             <Grow in={true}>
               <Card
+                variant="outlined"
                 sx={{
                   // border: '10px solid',
                   // borderImageSlice: '1',
                   // borderWidth: '7px',
                   // borderImageSource: 'linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))'
-                  position: "relative",
+                  // position: "relative",
+                  // borderRadius: "20px",
+                  // overflow: "hidden", // Ensure rounded corners are visible
+                  // "&::before": {
+                  //   content: "''",
+                  //   position: "absolute",
+                  //   top: 0,
+                  //   left: 0,
+                  //   width: "100%",
+                  //   height: "100%",
                   borderRadius: "20px",
-                  overflow: "hidden", // Ensure rounded corners are visible
-                  "&::before": {
-                    content: "''",
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: "20px",
-                    border: "5px solid",
-                    borderImageSlice: "1",
-                    borderImageSource:
-                      "linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
-                  },
+                  boxShadow: "0 40px 80px rgba(0, 0, 0, 0.1)",
+
+                  //   border: "5px solid",
+                  //   borderImageSlice: "1",
+                  //   borderImageSource:
+                  //     "linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
+                  // },
                 }}
-                onClick={() => showEventDetails(event.id)}
               >
                 <CardMedia
                   component="img"
                   height="140"
                   image={event.img_url}
                   alt={event.name}
+                  onClick={() => showEventDetails(event.id)}
                 />
                 <CardHeader
                   title={
@@ -139,9 +142,10 @@ const Events = () => {
                   }
                   subheader={`${event.date}, ${event.time}`}
                   sx={{ backgroundColor: "rgb(218, 165, 32, .4)" }}
+                  onClick={() => showEventDetails(event.id)}
                 />
 
-                <CardContent>
+                <CardContent onClick={() => showEventDetails(event.id)}>
                   <Typography variant="body2" component="h2">
                     {event.venue_name}
                   </Typography>

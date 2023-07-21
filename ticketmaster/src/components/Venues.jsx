@@ -123,28 +123,29 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
               <Card
                 variant="outlined"
                 sx={{
-                  // borderRadius: "50px",
+                  borderRadius: "20px",
                   // //border: "10px solid",
                   // borderImageSlice: "1",
                   // borderWidth: "7px",
                   // borderImageSource:
                   //   "linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
-                  position: "relative",
-                  borderRadius: "20px",
-                  overflow: "hidden", // Ensure rounded corners are visible
-                  "&::before": {
-                    content: "''",
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: "20px",
-                    border: "5px solid",
-                    borderImageSlice: "1",
-                    borderImageSource:
-                      "linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
-                  },
+                  // position: "relative",
+                  // borderRadius: "20px",
+                  // overflow: "hidden", // Ensure rounded corners are visible
+                  // "&::before": {
+                  //   content: "''",
+                  //   position: "absolute",
+                  //   top: 0,
+                  //   left: 0,
+                  //   width: "100%",
+                  //   height: "100%",
+                  //   borderRadius: "20px",
+                  //   border: "5px solid",
+                  //   borderImageSlice: "1",
+                  //   borderImageSource:
+                  //     "linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
+                  // },
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
                 }}
               >
                 <CardMedia
