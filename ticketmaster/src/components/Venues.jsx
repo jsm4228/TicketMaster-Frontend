@@ -114,10 +114,11 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
             <Grow in={true}>
               <Card
                 sx={{
-                  border: '10px solid',
-                  borderImageSlice: '1',
-                  borderWidth: '7px',
-                  borderImageSource: 'linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))'
+                  border: "10px solid",
+                  borderImageSlice: "1",
+                  borderWidth: "7px",
+                  borderImageSource:
+                    "linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
                 }}
               >
                 <CardMedia
@@ -134,8 +135,14 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
                     textShadow: "3px 3px 3px grey",
                   }}
                 />
-                <CardContent></CardContent>
-                <CardActions disableSpacing>
+
+                <CardActions
+                  sx={{
+                    backgroundImage:
+                      "linear-gradient(to bottom, rgb(218, 165, 32, .4), rgba(20, 130, 180, .6))",
+                  }}
+                  disableSpacing
+                >
                   <ExpandMore
                     expand={expanded[index]}
                     onClick={() => handleExpandClick(index)}
@@ -149,28 +156,18 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
                   in={expanded[index]}
                   timeout="auto"
                   unmountOnExit
-                  sx={{ backgroundColor: "rgb(218, 165, 32, .4)" }}
+                  sx={{}}
                 >
-                  <CardContent sx={{ backgroundImage:
-            "linear-gradient(to top, rgb(218, 165, 32, .0),rgba(20, 130, 180))" }}>
-                    <Typography
-                      gutterBottom
-                      variant="h6"
-                      sx={{
-                        color: "rgb(250, 250, 250, 1)",
-                        textShadow: "3px 3px 3px grey",
-                      }}
-                    >
+                  <CardContent
+                    sx={{
+                      backgroundImage:
+                        "linear-gradient(to top, rgb(218, 165, 32, .0),rgba(20, 130, 180,.6 ))",
+                    }}
+                  >
+                    <Typography gutterBottom variant="body1">
                       Brief Description:
                     </Typography>
-                    <Typography
-                      gutterBottom
-                      variant="body2"
-                      sx={{
-                        color: "rgb(250, 250, 250, 1)",
-                        textShadow: "3px 3px 3px grey",
-                      }}
-                    >
+                    <Typography gutterBottom variant="body2">
                       {`This venue includes ${venue.bar ? "a bar" : ""}, ${
                         venue.kitchen ? "a kitchen" : ""
                       }, ${
