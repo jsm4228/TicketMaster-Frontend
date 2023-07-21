@@ -129,10 +129,22 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
                   // borderWidth: "7px",
                   // borderImageSource:
                   //   "linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
+                  position: "relative",
                   borderRadius: "20px",
-                  boxShadow:
-                    "0px 0px 0px 7px rgba(218, 165, 32, 0), inset 0px 0px 0px 7px linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
                   overflow: "hidden", // Ensure rounded corners are visible
+                  "&::before": {
+                    content: "''",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "20px",
+                    border: "5px solid",
+                    borderImageSlice: "1",
+                    borderImageSource:
+                      "linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
+                  },
                 }}
               >
                 <CardMedia
