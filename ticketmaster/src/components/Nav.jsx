@@ -29,7 +29,7 @@ const Nav = () => {
           align="center"
         >
           <Link to="./">
-            <Button>Home</Button>
+            <Button>Venues</Button>
           </Link>
           {/* <Link to="./generate">
             <Button>Recipe Generator</Button>
