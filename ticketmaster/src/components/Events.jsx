@@ -118,7 +118,7 @@ const Events = () => {
                    
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    There are {event.tickets_available} tickets left for this
+                    There are {event.tickets_available - event.tickets_sold} tickets left for this
                     event.
                     <br />
                     Price: ${event.price}
