@@ -110,15 +110,29 @@ const Venues = ({ drinks, drink, handleMouseEnter, handleMouseLeave }) => {
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
         {venues.map((venue, index) => (
-          <Grid item xs={2} sm={4} md={4} className="card" key={venue.id}>
+          <Grid
+            item
+            xs={2}
+            sm={4}
+            md={4}
+            className="card"
+            key={venue.id}
+            //sx={{ borderRadius: "50px" }}
+          >
             <Grow in={true}>
               <Card
+                variant="outlined"
                 sx={{
-                  border: "10px solid",
-                  borderImageSlice: "1",
-                  borderWidth: "7px",
-                  borderImageSource:
-                    "linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
+                  // borderRadius: "50px",
+                  // //border: "10px solid",
+                  // borderImageSlice: "1",
+                  // borderWidth: "7px",
+                  // borderImageSource:
+                  //   "linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
+                  borderRadius: "20px",
+                  boxShadow:
+                    "0px 0px 0px 7px rgba(218, 165, 32, 0), inset 0px 0px 0px 7px linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
+                  overflow: "hidden", // Ensure rounded corners are visible
                 }}
               >
                 <CardMedia
