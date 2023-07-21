@@ -65,8 +65,11 @@ const Cart = () => {
       <Divider></Divider>
       {cartItems.map((item, index) => (
         <Container sx={{ textAlign: "center", padding: "10px" }} key={index}>
-          <Typography variant="h6">{item.name}</Typography>
-          <Typography variant="p">{item.description}</Typography>
+          <Typography variant="h5">{item.name}</Typography>
+          <Typography variant="h6">{item.date}</Typography>
+          <Typography variant="h6">{item.time}</Typography>
+          <Typography variant="p">{item.event_description}</Typography>
+          <Typography variant="h5">${item.price}.00</Typography>
           <Button onClick={() => removeFromCart(index)}>Remove</Button>
           <Button onClick={() => buyItem(index)}>Buy</Button>
           {index < cartItems.length ? <Divider></Divider> : null}
