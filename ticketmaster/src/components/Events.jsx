@@ -33,6 +33,7 @@ const ExpandMore = styled((props) => {
 }));
 
 const Events = () => {
+  let navigate = useNavigate();
   const [expanded, setExpanded] = React.useState([]);
   const [events, setEvents] = useState([]);
   const [venues, setVenues] = useState([]);
@@ -63,6 +64,10 @@ const Events = () => {
       newState[index] = !newState[index];
       return newState;
     });
+  };
+
+  const showEventDetails = (id) => {
+    navigate(`/events/${id}`);
   };
 
   return (
@@ -115,6 +120,7 @@ const Events = () => {
                       "linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
                   },
                 }}
+                onClick={() => showEventDetails(event.id)}
               >
                 <CardMedia
                   component="img"
