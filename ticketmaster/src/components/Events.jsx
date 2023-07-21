@@ -93,12 +93,29 @@ const Events = () => {
           <Grid item xs={2} sm={4} md={4} className="card" key={event.id}>
             <Grow in={true}>
               <Card
-              sx={{
-                border: '10px solid',
-                borderImageSlice: '1',
-                borderWidth: '7px',
-                borderImageSource: 'linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))'
-              }}>
+                sx={{
+                  // border: '10px solid',
+                  // borderImageSlice: '1',
+                  // borderWidth: '7px',
+                  // borderImageSource: 'linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))'
+                  position: "relative",
+                  borderRadius: "20px",
+                  overflow: "hidden", // Ensure rounded corners are visible
+                  "&::before": {
+                    content: "''",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "20px",
+                    border: "5px solid",
+                    borderImageSlice: "1",
+                    borderImageSource:
+                      "linear-gradient(to bottom, goldenrod, rgba(218, 165, 32, 0))",
+                  },
+                }}
+              >
                 <CardMedia
                   component="img"
                   height="140"
@@ -106,20 +123,25 @@ const Events = () => {
                   alt={event.name}
                 />
                 <CardHeader
-                  title={<Link to={`/events/${event.id}`} style={{textDecoration: 'none'}}>{event.name}</Link>}
+                  title={
+                    <Link
+                      to={`/events/${event.id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      {event.name}
+                    </Link>
+                  }
                   subheader={`${event.date}, ${event.time}`}
-                  sx={{backgroundColor: 'rgb(218, 165, 32, .4)'}}
+                  sx={{ backgroundColor: "rgb(218, 165, 32, .4)" }}
                 />
 
                 <CardContent>
                   <Typography variant="body2" component="h2">
-              
-                      {event.venue_name}
-                   
+                    {event.venue_name}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    There are {event.tickets_available - event.tickets_sold} tickets left for this
-                    event.
+                    There are {event.tickets_available - event.tickets_sold}{" "}
+                    tickets left for this event.
                     <br />
                     Price: ${event.price}
                   </Typography>
@@ -134,9 +156,14 @@ const Events = () => {
                     <ExpandMoreIcon />
                   </ExpandMore>
                 </CardActions>
-                <Collapse in={expanded[index]} timeout="auto" unmountOnExit sx={{
-                  backgroundColor: 'rgb(218, 165, 32, .4)'
-                }}>
+                <Collapse
+                  in={expanded[index]}
+                  timeout="auto"
+                  unmountOnExit
+                  sx={{
+                    backgroundColor: "rgb(218, 165, 32, .4)",
+                  }}
+                >
                   <CardContent>
                     <Typography
                       variant="body2"
