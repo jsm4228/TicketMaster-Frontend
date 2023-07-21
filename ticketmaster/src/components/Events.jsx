@@ -113,10 +113,9 @@ const Events = () => {
 
                 <CardContent>
                   <Typography variant="body2" component="h2">
-                    <Link to={`/venues/${event.venue_id}`}
-                    style={{textDecoration: 'none'}}>
+              
                       {event.venue_name}
-                    </Link>
+                   
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     There are {event.tickets_available} tickets left for this
